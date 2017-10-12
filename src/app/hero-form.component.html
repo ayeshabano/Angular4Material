@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<div class="container">
+      <form class="example-form" #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm)">
+        <h1>Employee Form</h1>
+        <md-form-field class="form-s">
+          <!--id-->
+          <input  placeholder="Id"  mdInput [(ngModel)]="model.id" name="Id" id="Id" #Id="ngModel" #spy  disabled>
+        </md-form-field><br>
+      <md-form-field class="form-s">
+        <!--name-->
+        <input   mdInput  placeholder="Name"  mdInput [(ngModel)]="model.name" name="name" required id="name" #name1="ngModel" #spy >
+        <md-error *ngIf="name1.invalid">
+          Name is <strong>required</strong>
+        </md-error>
+      </md-form-field><br>
+      <!--<div [hidden] = "name1.valid || name1.pristine" >
+        Name is required</div><br>-->
+      <!--{{spy.className}}-->
+      <!--power-->
+   <!--   <md-form-field >
+        <input type="text" placeholder="Power"  mdInput [(ngModel)]="model.power" [mdAutocomplete]="auto" name="pOwer">
+      </md-form-field>-->
+
+ <!--     <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let pow of powers"[value]="pow" >
+          {{ pow }}
+        </md-option>
+      </md-autocomplete ><br>
+-->
+        <md-select  placeholder="Nationality" name="nationality" id="1nationality" #nationality1="ngModel" [(ngModel)]="model.nationality"  class="form-s">
+          <md-option  *ngFor="let nation of nationality" [value]="nation" >
+            {{ nation }}
+          </md-option>
+        </md-select> <br><br>
+        <!--AlterEgo-->
+      <md-form-field class="form-s">
+        <textarea mdInput placeholder="Comments" [(ngModel)]="model.comments" name="comments"  id="1comments" #comments1="ngModel" ></textarea>
+      </md-form-field>
+      <br>
+      <!--AlterEgo-->
+      <md-checkbox  id="1managmentSkill" [(ngModel)]="model.managmentSkill" name="managmentSkill" >Management</md-checkbox>
+      <md-checkbox  id="1programmingSkill" [(ngModel)]="model.programmingSkill" name="programmingSkill" >Programming</md-checkbox><br><br>
+
+      <button [disabled]="!heroForm.form.valid" md-raised-button class="button">Submit</button>
+        <button md-raised-button class="button" (click)="newEmployee();heroForm.reset()">New</button>
+      {{submitted}}
+    </form>
+
+</div>
+<!--<div class="container">
+  <h1>Hero Form</h1>
+  <form >
+    &lt;!&ndash;<div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="name"
+             #name="ngModel">
+      <label [hidden]="name.valid || name.pristine">
+        Name is required
+      </label>
+    </div>&ndash;&gt;
+    <div class="form-group">
+      <label for="alterEgo">Alter Ego</label>
+      <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
+      TODO: remove this: {{model.alterEgo}}
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Alter Ego</label><br>
+      &lt;!&ndash;<input type="checkbox" id="a" [(ngModel)]="model.a" name="a">a&ndash;&gt;
+      &lt;!&ndash;<input type="checkbox" id="b" [(ngModel)]="model.b" name="b">b&ndash;&gt;
+      <input type="checkbox" id="c" [(ngModel)]="model.c" name="c">c
+      <input type="checkbox" id="d" [(ngModel)]="model.d" name="d">d
+    </div>
+
+  &lt;!&ndash;  <div class="form-group">
+      <label for="power">Hero Power</label>
+      <select class="form-control" id="power" required  [(ngModel)]="model.power" name="power">
+        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+      </select>
+      TODO: remove this: {{model.power}}
+   </div>&ndash;&gt;
+
+
+
+    <button type="submit" class="mat-elevation-z6" style="background-color: aquamarine">I'm a button</button>
+
+  </form>
+
+</div>-->
+
+
+{{diagnostic}}

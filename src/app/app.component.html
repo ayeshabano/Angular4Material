@@ -1,0 +1,106 @@
+<!--
+<div>
+
+  <mat-header-row>Hi</mat-header-row>
+</div>-->
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div style="text-align:center">
+</div>-->
+<div>
+  <md-toolbar color="primary" class="mat-elevation-z5" color="primary" style="z-index: 100!important;">
+    <a md-mini-fab (click)="sidenav.toggle()" color="primary"><md-icon>search</md-icon></a>
+    <md-menu #appMenu="mdMenu">
+      <button md-menu-item><md-icon>settings</md-icon>Settings</button>
+      <button md-menu-item><md-icon>help</md-icon>Help</button>
+    </md-menu>
+    <button md-icon-button [mdMenuTriggerFor] = "appMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+</div>
+
+<md-sidenav-container class="example-container">
+  <md-sidenav mode="over" #sidenav class="example-sidenav">
+    <a routerLink="item"><md-icon>delete</md-icon></a><br>
+    <i class="material-icons">face</i>Profile<br>
+    <button md-button (click)="gotoo()" class="z-depth-5">I'm a button</button>
+  </md-sidenav>
+  <div><hero-form></hero-form></div>
+</md-sidenav-container>
+
+<!--
+
+<div>
+  <md-toolbar color = "warn" >
+    <h2>Default Theme</h2>
+    <md-menu #appMenu="mdMenu">
+      <button md-menu-item> Settings </button>
+      <button md-menu-item> Help </button>
+    </md-menu>
+
+    <button md-icon-button [mdMenuTriggerFor] = "appMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
+
+  </md-toolbar>
+</div>
+
+<div>
+
+  <a md-button color="primary">Flat button</a>
+  <a md-raised-button color="accent">Raised button</a>
+  <a md-fab color="primary"><md-icon>check</md-icon></a>
+  <a md-mini-fab color="primary"><md-icon>check</md-icon></a>
+
+</div>
+<div>
+
+</div>
+
+-->
+
+
+
+<!--<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>-->
+
+
+<!--<div>
+  <mat-toolbar >
+    <span><mat-icon>mood</mat-icon></span>
+
+    <span>Yay, Material in Angular 2!</span>
+
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="mdMenu">
+    <button mat-menu-item>Option 1</button>
+    <button mat-menu-item>Option 2</button>
+  </mat-menu>
+
+  <mat-card>
+    <button mat-button>All</button>
+    <button mat-raised-button>Of</button>
+    <button mat-raised-button color="primary">The</button>
+    <button mat-raised-button color="accent">Buttons</button>
+  </mat-card>
+
+  <span class="done">
+    <button mat-fab>
+      <mat-icon>check circle</mat-icon>
+    </button>
+  </span>
+</div>-->
+
