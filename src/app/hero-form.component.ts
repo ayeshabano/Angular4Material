@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Hero }  from './hero';
 import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'hero-form',
   templateUrl: './hero-form.component.html'
@@ -10,24 +11,38 @@ export class HeroFormComponent {
   ngf :NgForm;
   counter: number;
   dataArray = [];
-  options = [
-    'One',
-    'Two',
-    'Three'
+  dept = [
+    'Accounts',
+    'Audit',
+    'Sales',
+    'Marketing'
   ];
   nationality = ['Pakistani', 'Arabian',
     'Turkish', 'American'];
 
-  model = new Hero(18, 'Ayesha', this.nationality[1], 'Chuck Overstreet', true, true, false, false);
+  model = new Hero(18, 'Ayesha', this.nationality[1], 'Chuck Overstreet', true, true, false, false, this.dept[0], '01/01/1990');
   submitted = false;
+  filteredList= [];
+  tdDept: string;
   constructor(){
 
 
   };
   ngOnInit() {
- //   this.dataArray = ['',''];
+
   }
+
+  filteredValues(val: string){
+    if (val) {
+      const filterValue = val.toLowerCase();
+      return this.dept.filter(state => state.toLowerCase().startsWith(filterValue));
+    }
+    return this.dept;
+  }
+
   onSubmit(form: NgForm) {
+
+
     this.submitted = true;
     this.counter = -1;
     if (this.model.id === null) {this.model.id = 0}

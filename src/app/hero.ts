@@ -9,6 +9,9 @@ export class Hero {
     public programmingSkill: boolean,
     public accountingSkill: boolean,
     public designingSkill: boolean,
+    public department: string,
+    public dob: string
+
   ) {  }
 
 }
