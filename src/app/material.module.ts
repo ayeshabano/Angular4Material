@@ -12,7 +12,11 @@ import {
   MdCheckboxModule,
   MdSelectModule,
   MdDatepickerModule,
-  MdNativeDateModule
+  MdNativeDateModule,
+  MdTabsModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdTooltipModule, MdProgressSpinnerModule
 } from '@angular/material';
 
 @NgModule({
@@ -28,7 +32,12 @@ import {
     MdCheckboxModule,
     MdSelectModule,
     MdDatepickerModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+    MdTabsModule,
+    MdSliderModule,
+    MdSlideToggleModule,
+    MdTooltipModule,
+    MdProgressSpinnerModule
   ],
   exports: [
     MdButtonModule,
@@ -42,7 +51,12 @@ import {
     MdCheckboxModule,
     MdSelectModule,
     MdDatepickerModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+    MdTabsModule,
+    MdSliderModule,
+    MdSlideToggleModule,
+    MdTooltipModule,
+    MdProgressSpinnerModule
   ]
 })
 export class MaterialModule {}

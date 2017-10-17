@@ -1,57 +1,49 @@
 
 <!DOCTYPE html>
 <div class="container">
+  <md-tab-group>
+    <md-tab label="Form">
       <form class="example-form" #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm)">
-        <h1>Employee Form</h1>
         <md-form-field class="form-s">
-          <!--id-->
           <input  placeholder="Id"  mdInput [(ngModel)]="model.id" name="Id" id="Id" #Id="ngModel" #spy  disabled>
         </md-form-field><br>
-      <md-form-field class="form-s">
-        <!--name-->
-        <input   mdInput  placeholder="Name"  mdInput [(ngModel)]="model.name" name="name" required id="name" #name1="ngModel" #spy >
-        <md-error *ngIf="name1.invalid">
-          Name is <strong>required</strong>
-        </md-error>
-      </md-form-field><br>
-
-      <!--{{spy.className}}-->
-      <!--dept-->
-   <md-form-field class="form-s">
-     <!--   <input type="text" placeholder="Department" id = "dept1"  mdInput [(ngModel)]="model.department"
-               [mdAutocomplete]="auto1" name="dept" #Dept = "ngModel" mdInput  (ngModelChange)="tdDept=filteredValues(model.department)" >-->
-       <input mdInput placeholder="Department" [mdAutocomplete]="auto1" name="dept"
-              #Dept="ngModel" [(ngModel)]="model.department"
-              (ngModelChange)="tdDept = filteredValues(model.department)">
-     <md-autocomplete #auto1="mdAutocomplete">
-       <md-option *ngFor="let dep of tdDept" [value]="dep" >
-         {{ dep }}
-       </md-option>
-     </md-autocomplete>
-   </md-form-field> <br>
+        <md-form-field class="form-s">
+          <input   mdInput  placeholder="Name"  mdInput [(ngModel)]="model.name" name="name" required id="name" #name1="ngModel" #spy >
+          <md-error *ngIf="name1.invalid">
+            Name is <strong>required</strong>
+          </md-error>
+        </md-form-field><br>
 
 
-<!--      <md-autocomplete #auto="mdAutocomplete">
-        <md-option *ngFor="let pow of powers"[value]="pow" >
-          {{ pow }}
-        </md-option>
-      </md-autocomplete ><br>-->
+        <md-form-field class="form-s">
+          <input type="text" placeholder="Department" id = "dept1"  mdInput [(ngModel)]="model.department"
+                   [mdAutocomplete]="auto1" name="dept" #Dept = "ngModel" mdInput  (ngModelChange)="tdDept=filteredValues(model.department)" >
+           <input mdInput placeholder="Department" [mdAutocomplete]="auto1" name="dept"
+                  #Dept="ngModel" [(ngModel)]="model.department"
+                  (ngModelChange)="tdDept = filteredValues(model.department)">
+         <md-autocomplete #auto1="mdAutocomplete">
+           <md-option *ngFor="let dep of tdDept" [value]="dep" >
+             {{ dep }}
+           </md-option>
+         </md-autocomplete>
+        </md-form-field> <br>
+
 
         <md-select  placeholder="Nationality" name="nationality" id="1nationality" #nationality1="ngModel" [(ngModel)]="model.nationality"  class="form-s">
           <md-option  *ngFor="let nation of nationality" [value]="nation" >
             {{ nation }}
           </md-option>
         </md-select> <br><br>
-        <!--comments-->
-      <md-form-field class="form-s">
-        <textarea mdInput placeholder="Comments" [(ngModel)]="model.comments" name="comments"  id="1comments" #comments1="ngModel" ></textarea>
-      </md-form-field>
-      <br>
-      <!--skills-->
-      <md-checkbox  id="1managmentSkill" [(ngModel)]="model.managmentSkill" name="managmentSkill" #management1="ngModel" >Management</md-checkbox>
-      <md-checkbox  id="1programmingSkill" [(ngModel)]="model.programmingSkill" name="programmingSkill" #programming1="ngModel">Programming</md-checkbox><br><br>
 
-        <!--date-->
+        <md-form-field class="form-s">
+          <textarea mdInput placeholder="Comments" [(ngModel)]="model.comments" name="comments"  id="1comments" #comments1="ngModel" ></textarea>
+        </md-form-field>
+        <br>
+
+        <md-checkbox  id="1managmentSkill" [(ngModel)]="model.managmentSkill" name="managmentSkill" #management1="ngModel" >Management</md-checkbox>
+        <md-checkbox  id="1programmingSkill" [(ngModel)]="model.programmingSkill" name="programmingSkill" #programming1="ngModel">Programming</md-checkbox><br><br>
+
+
 
         <md-input-container class="form-s">
           <input mdInput  [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="model.dob" name="dob" #DOB="ngModel">
@@ -60,10 +52,20 @@
         <md-datepicker #picker></md-datepicker><br>
 
 
-      <button [disabled]="!heroForm.form.valid" md-raised-button class="button">Submit</button>
+        <button [disabled]="!heroForm.form.valid" md-raised-button class="button">Submit</button>
         <button md-raised-button class="button" (click)="newEmployee();heroForm.reset()">New</button>
-      {{submitted}}
-    </form>
+
+      </form>
+    </md-tab>
+    <md-tab label="Result">
+      <md-slide-toggle>Slide me!</md-slide-toggle><br>
+      <span mdTooltip="Tooltip!" mdTooltipPosition="left">I have a tooltip</span><br>
+      <md-spinner></md-spinner><br>
+      <md-slider></md-slider><br>
+      {{submitted}}<br>{{diagnostic}}
+    </md-tab>
+  </md-tab-group>
+
 
 </div>
 <!--<div class="container">
@@ -110,4 +112,4 @@
 </div>-->
 
 
-{{diagnostic}}
+
