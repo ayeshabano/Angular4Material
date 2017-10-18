@@ -16,7 +16,8 @@ import {
   MdTabsModule,
   MdSliderModule,
   MdSlideToggleModule,
-  MdTooltipModule, MdProgressSpinnerModule
+  MdTooltipModule, MdProgressSpinnerModule,
+  MdTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -37,7 +38,8 @@ import {
     MdSliderModule,
     MdSlideToggleModule,
     MdTooltipModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdTableModule
   ],
   exports: [
     MdButtonModule,
@@ -56,7 +58,8 @@ import {
     MdSliderModule,
     MdSlideToggleModule,
     MdTooltipModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdTableModule
   ]
 })
 export class MaterialModule {}

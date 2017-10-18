@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Hero }  from './hero';
 import {NgForm} from '@angular/forms';
+import {DataSource} from '@angular/cdk/collections';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'hero-form',
@@ -24,6 +27,9 @@ export class HeroFormComponent {
   submitted = false;
   filteredList= [];
   tdDept: string;
+
+  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  dataSource = new ExampleDataSource();
   constructor(){
 
 
@@ -74,8 +80,29 @@ export class HeroFormComponent {
     }
     console.log(this.dataArray);
   }
-  newEmployee(){
+  newEmployee(form:NgForm){
+    console.log(form);
   }
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
+}
+export interface Element {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const data: Element[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+];
+export class ExampleDataSource extends DataSource<any> {
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<Element[]> {
+    return Observable.of(data);
+  }
+
+  disconnect() {}
 }
