@@ -102,6 +102,18 @@
         </md-table>
       </div>
     </md-tab>
+    <md-tab label="Country">
+      <md-select  placeholder="Country" name="c" id="count" #countr="ngModel" [(ngModel)]="selectedCountry.id"  (change)="onSelect($event.value)" >
+        <md-option  *ngFor="let country of countries" [value]="country.id">
+          {{ country.name }}
+        </md-option>
+      </md-select> <br><br>
+      <md-select  placeholder="City" name="cit" id="ciit" #cityy="ngModel" [(ngModel)]="selectedCity.id" >
+        <md-option  *ngFor="let city of cities" [value]="city.id" >
+          {{ city.name }}
+        </md-option>
+      </md-select> <br><br>
+    </md-tab>
   </md-tab-group>
 
 

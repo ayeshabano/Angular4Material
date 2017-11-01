@@ -3,11 +3,15 @@ import { Hero }  from './hero';
 import {NgForm} from '@angular/forms';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs/Observable';
+import {CountryService} from './country.service';
+import {CountryComponent} from './country.component';
+import {CityComponent} from './city.component';
 import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'hero-form',
-  templateUrl: './hero-form.component.html'
+  templateUrl: './hero-form.component.html',
+  providers: [CountryService]
 })
 
 export class HeroFormComponent {
@@ -30,14 +34,24 @@ export class HeroFormComponent {
 
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = new ExampleDataSource();
-  constructor(){
 
+  selectedCountry: CountryComponent;
+  selectedCity: CityComponent;
+  countries: CountryComponent[];
+  cities: CityComponent[];
+  constructor(private _countryService: CountryService){
+    this.selectedCountry = new CountryComponent('Select', 'Select Country');
+    this.selectedCity = new CityComponent('Select', 'Select Country', 'Select City');
+    this.countries = this._countryService.getCountries();
 
   };
   ngOnInit() {
 
   }
-
+  onSelect(countryid: string) {
+    this.cities = this._countryService.getCities().filter((item) => item.countryid == countryid);
+    console.log(this.cities);
+  }
   filteredValues(val: string){
     if (val) {
       const filterValue = val.toLowerCase();
