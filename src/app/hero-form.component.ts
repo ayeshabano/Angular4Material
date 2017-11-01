@@ -51,10 +51,13 @@ export class HeroFormComponent {
   }
   onSelect(countryid: string) {
     this.cities = this._countryService.getCities().filter((item) => item.countryid == countryid);
-    console.log(this.cities);
+ //   console.log(this.cities);
   }
   onSelectCity(cityid: string){
-    this.chipsCountry.push(cityid);
+    let index = this.chipsCountry.indexOf(cityid);
+    if (index < 0) {
+      this.chipsCountry.push(cityid);
+    }
   }
 
   remove(id: any): void {
