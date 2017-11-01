@@ -17,6 +17,7 @@ import 'rxjs/add/observable/of';
 export class HeroFormComponent {
   ngf :NgForm;
   counter: number;
+  chipsCountry = [];
   dataArray = [];
   dept = [
     'Accounts',
@@ -34,7 +35,7 @@ export class HeroFormComponent {
 
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = new ExampleDataSource();
-
+  removable: boolean = true;
   selectedCountry: CountryComponent;
   selectedCity: CityComponent;
   countries: CountryComponent[];
@@ -51,6 +52,17 @@ export class HeroFormComponent {
   onSelect(countryid: string) {
     this.cities = this._countryService.getCities().filter((item) => item.countryid == countryid);
     console.log(this.cities);
+  }
+  onSelectCity(cityid: string){
+    this.chipsCountry.push(cityid);
+  }
+
+  remove(id: any): void {
+    let index = this.chipsCountry.indexOf(id);
+
+    if (index >= 0) {
+      this.chipsCountry.splice(index, 1);
+    }
   }
   filteredValues(val: string){
     if (val) {

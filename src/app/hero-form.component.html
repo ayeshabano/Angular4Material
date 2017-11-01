@@ -108,11 +108,18 @@
           {{ country.name }}
         </md-option>
       </md-select> <br><br>
-      <md-select  placeholder="City" name="cit" id="ciit" #cityy="ngModel" [(ngModel)]="selectedCity.id" >
+      <md-select  placeholder="City" name="cit" id="ciit" #cityy="ngModel" [(ngModel)]="selectedCity.id" (change)="onSelectCity($event.value)" >
         <md-option  *ngFor="let city of cities" [value]="city.id" >
           {{ city.name }}
         </md-option>
       </md-select> <br><br>
+      <md-chip-list mdPrefix #chipList>
+        <md-chip *ngFor="let chipp of chipsCountry" [selectable]="selectable"
+                 [removable]="removable" (remove)="remove(chipp)">
+          {{chipp}}
+          <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
+        </md-chip>
+      </md-chip-list>
     </md-tab>
   </md-tab-group>
 
