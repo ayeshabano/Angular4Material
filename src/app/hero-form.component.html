@@ -103,6 +103,7 @@
       </div>
     </md-tab>
     <md-tab label="Country">
+
       <md-select  placeholder="Country" name="c" id="count" #countr="ngModel" [(ngModel)]="selectedCountry.id"  (change)="onSelect($event.value)" >
         <md-option  *ngFor="let country of countries" [value]="country.id">
           {{ country.name }}
@@ -120,6 +121,9 @@
           <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
         </md-chip>
       </md-chip-list>
+    </md-tab>
+    <md-tab label="Cars">
+      <app-item></app-item>
     </md-tab>
   </md-tab-group>
 
