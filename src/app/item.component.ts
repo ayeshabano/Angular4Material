@@ -3,12 +3,16 @@ import { Car }  from './car';
 import 'rxjs/add/observable/of';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs/Observable';
+import {MdSnackBar} from "@angular/material";
+
+
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: []
 })
+
 
 export class ItemComponent {
 
@@ -20,11 +24,19 @@ export class ItemComponent {
   displayedColumns = ['id', 'name'];
   json: string;
 
-  constructor(){
+  constructor(public snackBar: MdSnackBar){
     this.array =  [this.model1, this.model2, this.model3];
     this.json=JSON.stringify(this.array);
     //this.dataSourceHero = new HeroDataSource(this.array);
     this.dataSourceHero = new HeroDataSource(this.json);
+    this.snackBar.open('Success', 'Ok', {
+      duration: 5000, verticalPosition: "top"
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }
 
