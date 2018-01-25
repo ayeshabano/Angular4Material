@@ -65,7 +65,9 @@
       {{submitted}}<br>{{diagnostic}}<br>
     </md-tab>
     <md-tab label="Records" style="height: 70%">
-
+      <button md-raised-button (click)="openDialog()">Pick one</button>
+      <button md-raised-button (click)="setGreen()">Green</button>
+      <button md-raised-button (click)="setRed()">Red</button>
 
       <div class="mat-elevation-z8" style="width: 50%; padding-top: 1%">
         <md-table #table [dataSource]="dataSource">

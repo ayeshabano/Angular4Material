@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import {
   MdButtonModule,
   MdMenuModule,
@@ -41,7 +41,8 @@ import {
     MdProgressSpinnerModule,
     MdTableModule,
     MdChipsModule,
-    MdSnackBarModule
+    MdSnackBarModule,
+    MatDialogModule
 
   ],
   exports: [

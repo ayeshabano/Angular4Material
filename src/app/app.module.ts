@@ -4,7 +4,7 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
-import {HeroFormComponent} from './hero-form.component';
+import {DialogOverviewExampleDialog, HeroFormComponent} from './hero-form.component';
 import {routes} from './app.routes';
 import {ItemComponent} from './item.component';
 
@@ -13,7 +13,8 @@ import {ItemComponent} from './item.component';
   declarations: [
     AppComponent,
     HeroFormComponent,
-    ItemComponent
+    ItemComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -21,6 +22,10 @@ import {ItemComponent} from './item.component';
     BrowserAnimationsModule,
     FormsModule,
     routes
+  ],
+
+  entryComponents: [
+    DialogOverviewExampleDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

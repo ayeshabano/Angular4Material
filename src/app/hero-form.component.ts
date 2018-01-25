@@ -7,6 +7,9 @@ import {CountryService} from './country.service';
 import {CountryComponent} from './country.component';
 import {CityComponent} from './city.component';
 import 'rxjs/add/observable/of';
+import { Inject} from '@angular/core';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'hero-form',
@@ -40,7 +43,12 @@ export class HeroFormComponent {
   selectedCity: CityComponent;
   countries: CountryComponent[];
   cities: CityComponent[];
-  constructor(private _countryService: CountryService){
+
+  animal: string;
+  name: string;
+
+
+  constructor(private _countryService: CountryService, public dialog: MdDialog){
     this.selectedCountry = new CountryComponent('Select', 'Select Country');
     this.selectedCity = new CityComponent('Select', 'Select Country', 'Select City');
     this.countries = this._countryService.getCountries();
@@ -114,6 +122,25 @@ export class HeroFormComponent {
   }
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '400px',
+      data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+  setGreen(){
+    this.animal = "http://startalkcreate.org/lpg/server-side/db-operations-learning-plan.php?color=green"
+  }
+
+  setRed(){
+    this.animal = "http://startalkcreate.org/lpg/server-side/db-operations-learning-plan.php?color=red"
+  }
 }
 export interface Element {
   name: string;
@@ -134,4 +161,27 @@ export class ExampleDataSource extends DataSource<any> {
   }
 
   disconnect() {}
+}
+
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+ web: any;
+ site: string;
+  constructor(
+    public dialogRef: MdDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MD_DIALOG_DATA) public data: any, private domSanitizer : DomSanitizer) {
+    this.site = data.animal;
+
+  }
+ngOnInit(){
+  this.web = this.domSanitizer.bypassSecurityTrustResourceUrl(this.site);
+}
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }
