@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {DialogOverviewExampleDialog, HeroFormComponent} from './hero-form.component';
 import {routes} from './app.routes';
 import {ItemComponent} from './item.component';
+import {BookmarkComponent} from "./bookmark.component";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {ItemComponent} from './item.component';
     AppComponent,
     HeroFormComponent,
     ItemComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    BookmarkComponent
   ],
   imports: [
     BrowserModule,
