@@ -60,6 +60,7 @@ export class BookmarkComponent implements OnInit {
   showForm(i) {
     this.bookmarks[i].show = !this.bookmarks[i].show;
     localStorage.setItem('bookmarks', JSON.stringify(this.bookmarks));
+    alert(JSON.stringify(this.bookmarks));
   }
 
   // Edit a bookmark and update localStorage

@@ -46,8 +46,8 @@
       <hr class="visible-xs" />
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8 all-bookmarks">
-      <ul>
-        <li *ngFor="let bookmark of bookmarks; let i = index">
+      <ul class="list-group" dnd-sortable-container [sortableData]="bookmarks">
+        <li dnd-sortable [sortableIndex]="i" *ngFor="let bookmark of bookmarks; let i = index">
           <div class="bookmark-item">
             <button (click)="toggleFavorite(i)" type="button" class="btn btn-default btn-lg pull-left bookmark-btn">
               <span class="glyphicon glyphicon-star {{bookmark.marked ? 'favorite' : 'not-favorite'}}" aria-hidden="true"></span>

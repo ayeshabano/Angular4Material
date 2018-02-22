@@ -8,6 +8,7 @@ import {DialogOverviewExampleDialog, HeroFormComponent} from './hero-form.compon
 import {routes} from './app.routes';
 import {ItemComponent} from './item.component';
 import {BookmarkComponent} from "./bookmark.component";
+import { DndModule } from 'ng2-dnd';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {BookmarkComponent} from "./bookmark.component";
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
-    routes
+    routes,
+      DndModule.forRoot()
   ],
 
   entryComponents: [
